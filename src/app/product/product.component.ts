@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  @Input() productItem :any;
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+  }
+  seeMore() {
+    this.router.navigate([`productdetails/${this.productItem.id}`]) ;
   }
 
 }

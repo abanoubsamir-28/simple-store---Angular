@@ -1,1 +1,9 @@
-<p>product works!</p>
+<div class="card">
+  <img [src]="productItem.image" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{productItem.title | uppercase}}</h5>
+    <p class="card-text">{{productItem.description}}</p>
+    <button class="btn btn-primary mx-3">Add to Cart</button>
+    <button class="btn btn-primary" (click)="seeMore()">See More ..</button>
+  </div>
+</div>
