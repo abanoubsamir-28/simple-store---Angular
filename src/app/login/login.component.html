@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class=" signin container py-5 d-flex justify-content-center align-items-center">
+  <form class="w-50 p-5" (ngSubmit)="submitLoginForm()" [formGroup]="signInForm">
+    <h2 class="fs-1 text-uppercase">Sign in</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="email">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="signInForm.controls.email.touched && signInForm.controls.email.errors?.required">
+        Email is Required
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="signInForm.controls.email.touched &&
+        signInForm.controls.email.status=='INVALID'
+        && signInForm.controls.email.value!=0">
+        Email is invalid
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="signInForm.controls.password.touched && signInForm.controls.password.errors?.required ">
+        Password is Required
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [ngClass]="{'disabled' : signInForm.status=='INVALID'}">
+      Sign in
+    </button>
+    <h6 class="my-3">Don't Have an Account ?
+      <a class="link-primary" (click)="toRegiser()">Register</a>
+    </h6>
+  </form>
+</div>
