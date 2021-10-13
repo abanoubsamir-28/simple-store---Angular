@@ -1,3 +1,4 @@
+import { CardComponent } from './card/card.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { AllproductsComponent } from './allproducts/allproducts.component';
 import { RegisterComponent } from './register/register.component';
@@ -7,10 +8,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path:'' , component:AllproductsComponent},
+  {path:'', component:AllproductsComponent},
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'productdetails/:id' , component:ProductdetailsComponent},
+  {path:'card' , component:CardComponent},
   {path:'**' , component:NotfoundComponent}
 ];
 

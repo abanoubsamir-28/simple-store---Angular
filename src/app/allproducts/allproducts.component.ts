@@ -16,8 +16,8 @@ export class AllproductsComponent implements OnInit {
 
     this.productService.getProducts().subscribe(
       (res) => {
-        console.log(res) ;
         this.productList = res ;
+        this.showData() ;
       },
       (error) => {
         console.log(error) ;
@@ -25,6 +25,11 @@ export class AllproductsComponent implements OnInit {
     )
   }
 
+  showData() {
+    for (const product of this.productList) {
+      product.description =  product.description.substr(0 , 130)+"...." ;
+    }
+  }
 }
 
 
