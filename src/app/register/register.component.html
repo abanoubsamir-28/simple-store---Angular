@@ -1,1 +1,75 @@
-<p>register works!</p>
+<div class=" register container py-5 d-flex justify-content-center align-items-center">
+  <form class="w-50 p-5" [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+    <h2 class="fs-1 text-uppercase">Register</h2>
+
+
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="name">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="registerForm.controls.name.touched && registerForm.controls.name.errors?.required">
+        Name is Required
+      </div>
+    </div>
+
+
+
+
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">E-mail</label>
+      <input type="email" class="form-control" id="exampleInputPassword1" formControlName="email">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="registerForm.controls.email.touched && registerForm.controls.email.errors?.required">
+        Email is Required
+      </div>
+      <div class="alert alert-danger" role="alert"
+        *ngIf="registerForm.controls.email.value!=0 && registerForm.controls.email.status=='INVALID'">
+        Email invalid
+      </div>
+    </div>
+
+
+
+
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">User Name</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="username">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="registerForm.controls.username.touched && registerForm.controls.username.errors?.required">
+        User Name is Required
+      </div>
+      <div class="alert alert-danger" role="alert"
+        *ngIf="registerForm.controls.username.touched && registerForm.controls.username.status=='INVALID'">
+        User Name shouldn't have no spaces
+      </div>
+    </div>
+
+
+
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    </div>
+
+
+
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="confirmPassword">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">
+      Sign in
+    </button>
+    <h6 class="my-3">Already Have an Account ?
+      <a class="link-primary" (click)="toLogin()">Login</a>
+    </h6>
+  </form>
+</div>
