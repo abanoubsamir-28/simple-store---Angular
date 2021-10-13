@@ -1,5 +1,7 @@
 <div class="card">
-  <img [src]="productItem.image" class="card-img-top" alt="...">
+  <figure class="w-50 mx-auto">
+    <img [src]="productItem.image" class="card-img-top w-100" alt="...">
+  </figure>
   <div class="card-body">
     <h5 class="card-title">{{productItem.title | uppercase}}</h5>
     <p class="card-text">{{productItem.description}}</p>
