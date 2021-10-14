@@ -1,3 +1,4 @@
+import { CardService } from './../card.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   counter:any ;
-  constructor() { }
+  constructor(private cardService : CardService) { }
 
   ngOnInit(): void {
-    
+    this.cardService.currentAddedProducts.subscribe(value => this.counter = value) ; 
   }
 
 }

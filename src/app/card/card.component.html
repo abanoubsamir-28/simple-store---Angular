@@ -1,1 +1,33 @@
-<p>card works!</p>
+<table class="table container my-5" *ngIf="totalPrice > 0">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Preview</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of itemCards">
+      <th scope="row">1</th>
+      <td>
+        <img [src]="item.image" width="50px">
+      </td>
+      <td>{{item.title}}</td>
+      <td>{{item.price |currency}}</td>
+      <td>
+        <button class="btn">+</button>
+        <button class="btn">-</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">Total Price</td>
+      <td>{{totalPrice | currency}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-danger w-50 mx-auto text-center my-5" role="alert" *ngIf="totalPrice  == 0">
+  Card is Empty
+  <a routerLink="" class="btn btn-outline-primary my-2 d-block">Go to Shooping !!</a>
+</div>
