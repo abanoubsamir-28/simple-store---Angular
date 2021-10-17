@@ -17,9 +17,8 @@ export class CardService {
 
 
   updateItem(item:any) {
-    console.log("Service Update Fired");
-
     this.allProdsList.push(item) ;
+    this.allProdsList = [... new Set(this.allProdsList)] ;
   }
   sendItems() {
     return this.allProdsList ;

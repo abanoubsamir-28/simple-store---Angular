@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ProductComponent implements OnInit {
 
   numOfProducts :any ;
-
+  clicked = false ;
   @Input() productItem :any;
   constructor(private router : Router , private cardService:CardService) { }
 
@@ -20,13 +20,14 @@ export class ProductComponent implements OnInit {
     );
   }
 
+
   seeMore() {
     this.router.navigate([`productdetails/${this.productItem.id}`]) ;
   }
   addProduct() {
-    console.log("Added from prodcut component") ;
     this.cardService.updateAddedProducts(this.numOfProducts+1) ;
-    this.cardService.updateItem(this.productItem) ; 
+    this.cardService.updateItem(this.productItem) ;
+    this.clicked = true ;
   }
 
 }

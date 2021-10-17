@@ -3,9 +3,10 @@
     <img [src]="productItem.image" class="card-img-top">
   </figure>
   <div class="card-body">
-    <h5 class="card-title">{{productItem.title | uppercase}}</h5>
-    <p class="card-text">{{productItem.description}}</p>
-    <button class="btn btn-primary mx-3" (click)="addProduct()">Add to Cart</button>
-    <button class="btn btn-primary" (click)="seeMore()">See More ..</button>
+    <h5 class="card-title">{{productItem.title.substr(0,20) | uppercase}}</h5>
+    <p class="card-text">{{productItem.description.substr(0,100)}}</p>
+    <button [disabled] = "clicked"
+     class="btn btn-primary mx-3" (click)="addProduct()">Add to Cart</button>
+    <button class="btn btn-primary " (click)="seeMore()">See More ..</button>
   </div>
 </div>
